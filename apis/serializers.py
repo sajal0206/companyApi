@@ -6,6 +6,7 @@ from apis.models import Company, CompanyUser
 
 # company serializer
 class CompanySerializer(serializers.ModelSerializer):
+    company_id = serializers.ReadOnlyField()
     class Meta:
         model = Company
         fields = "__all__"
@@ -21,12 +22,13 @@ class CompanyViewSerializer(serializers.ModelSerializer):
 
 # company user serializer
 class CompanyUserSerializer(serializers.ModelSerializer):
+    user_id = serializers.ReadOnlyField()
     class Meta:
         model = CompanyUser
         fields = "__all__"
 
-# company user custom view serializer
 
+# company user custom view serializer
 class companyNameSerializer(serializers.ModelSerializer):
     class Meta:
         model = Company
